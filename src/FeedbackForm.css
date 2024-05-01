@@ -1,0 +1,100 @@
+/* Stil für das Feedback-Formular */
+.feedback-form {
+  max-width: auto;
+  margin: 10px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px; /* Ändere die Schriftgröße */
+  position: relative; /* Füge position: relative hinzu, um absolute Positionierung innerhalb zu ermöglichen */
+}
+
+.feedback-form h2 {
+  text-align: left;
+  padding: 8px;
+  font-size: 20px; /* Ändere die Schriftgröße */
+}
+
+.feedback-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  margin-bottom: 8px; /* Abstand zwischen den Containern */
+}
+
+.input-container label {
+  display: inline-block;
+  width: 90px; /* Breite des Labels */
+  font-size: 16px; /* Ändere die Schriftgröße */
+}
+
+.input-container input[type="text"],
+.input-container input[type="email"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 100px); /* Breite des Eingabefelds abzüglich des Label-Breite */
+  max-width: 300px; /* Maximale Breite für die Eingabefelder */
+  font-size: 16px; /* Ändere die Schriftgröße */
+}
+
+.feedback-form .textarea-container {
+  width: 90%; /* Setzen Sie die Breite des .textarea-container auf 90% */
+}
+
+.feedback-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Setzen Sie die Breite der textarea auf 100% */
+  box-sizing: border-box; /* Stellen Sie sicher, dass padding und border in die Berechnung der Breite einfließen */
+  resize: none;
+  font-size: 16px; /* Ändere die Schriftgröße */
+}
+
+/* Neue Klasse für die Höhe der Textarea */
+.custom-height-textarea {
+  height: 100px !important; /* Setzen Sie die Höhe der textarea auf 10px mit !important, um sicherzustellen, dass sie Vorrang hat */
+}
+
+.feedback-form button {
+  padding: 8px 16px;
+  background-color: #ff8c00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 80px;
+  font-size: 16px; /* Ändere die Schriftgröße */
+}
+
+.feedback-form button:hover {
+  background-color: #0056b3;
+}
+
+.feedback-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* CSS für den Container des Senden-Buttons und der Benachrichtigung */
+.button-container {
+  display: flex; /* Ändere die Anzeige auf flex */
+  align-items: center; /* Zentriere die Elemente vertikal */
+}
+
+/* CSS für die Benachrichtigung */
+.alert-notification {
+  background-color: #01c218;
+  color: #003a03;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center; /* Zentriere den Text */
+  transition: transform 0.5s ease; /* Hinzufügen einer sanften Animation */
+  width: 260px; /* Setze die Breite auf 300px */
+  margin-left: 100px; /* Füge einen Abstand zwischen dem Button und der Benachrichtigung hinzu */
+}

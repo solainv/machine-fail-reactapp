@@ -1,0 +1,129 @@
+
+.container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Platz zwischen den Elementen gleichmäßig verteilen */
+  width: 100%;
+  height: 100vh; /* Füllt die gesamte Bildschirmhöhe aus */
+}
+
+.feedback-dashboard {
+  width: 80%; /* Breite des Feedback-Dashboards */
+}
+
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Abstand nach oben */
+}
+
+.feedback-table th,
+.feedback-table td {
+  border: 1px solid #ddd; /* Rahmen um die Tabellenzellen */
+  padding: 8px; /* Innenabstand der Tabellenzellen */
+  text-align: left; /* Linksbündige Ausrichtung des Textes */
+  max-width: 800px;
+}
+
+.feedback-table th {
+  background-color: #f2f2f2; /* Hintergrundfarbe für Tabellenüberschriften */
+}
+.feedback-table button {
+  padding: 8px 16px; /* Innenabstand der Schaltflächen */
+  background-color: #56c659; /* Hintergrundfarbe der Schaltflächen */
+  color: white; /* Textfarbe der Schaltflächen */
+  border: none; /* Kein Rahmen um die Schaltflächen */
+  cursor: pointer; /* Zeiger bei Hover über den Schaltflächen */
+  font-size: 14px; /* Schriftgröße */
+  border-radius: 4px; /* Abgerundete Ecken */
+  text-align: center;}
+
+.feedback-table button:hover {
+  background-color: #45a049; /* Ändern der Hintergrundfarbe bei Hover */
+}
+
+
+.logout button {
+  padding: 10px 20px; /* Innenabstand der Schaltflächen */
+  background-color: #f44336; /* Hintergrundfarbe der Schaltflächen */
+  color: white; /* Textfarbe der Schaltflächen */
+  border: none; /* Kein Rahmen um die Schaltflächen */
+  cursor: pointer; /* Zeiger bei Hover über den Schaltflächen */
+  font-size: 16px; /* Schriftgröße */
+  border-radius: 5px; /* Abgerundete Ecken */
+}
+
+.logout button:hover {
+  background-color: #d32f2f; /* Ändern der Hintergrundfarbe bei Hover */
+}
+
+@media screen and (max-width: 768px) {
+  .feedback-dashboard {
+    width: 95%; /* 95% der Breite des Containers */
+
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-heading {
+    margin-bottom: 20px;
+  }
+  
+  .feedback-table-wrapper {
+    overflow-x: auto;
+    width: 95%; /* 95% der Breite des Containers */
+    margin: 0 auto; /* Zentriert die Tabelle im Container */
+  }
+  
+  
+  .feedback-table-container {
+    position: relative;
+  }
+  
+  .feedback-table {
+    width: auto; /* Automatische Breite für die gesamte Tabelle */
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  .feedback-table th,
+  .feedback-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .feedback-table th:first-child,
+  .feedback-table td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #f2f2f2;
+    z-index: 2;
+    width: 150px; /* Breite der fixierten Spalten */
+  }
+  
+  .feedback-table th:nth-child(2),
+  .feedback-table td:nth-child(2) {
+    position: sticky;
+    left: 0;
+    background-color: #f2f2f2;
+    z-index: 1;
+    width: 150px; /* Breite der fixierten Spalten */
+  }
+  
+  .feedback-table th:nth-child(3),
+  .feedback-table td:nth-child(3),
+  .feedback-table th:nth-child(4),
+  .feedback-table td:nth-child(4),
+  .feedback-table th:nth-child(5),
+  .feedback-table td:nth-child(5) {
+    z-index: 0;
+  }
+  
+  .logout {
+    margin-top: 20px;
+  }
+  
+}

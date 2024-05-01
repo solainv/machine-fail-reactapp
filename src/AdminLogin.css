@@ -1,0 +1,70 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  max-width: 300px;
+}
+
+.login-card {
+  width: 300px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form-container.form {
+  margin-bottom: 20px;
+}
+
+.login-form-container .login-form input[type="text"],
+.login-form-container .login-form input[type="password"],
+.login-form-container .login-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-form-container .login-form button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-form-container .login-form button:hover {
+  background-color: #0056b3;
+}
+
+.login-form-container .login-form input[type="text"]::placeholder,
+.login-form-container .login-form input[type="password"]::placeholder {
+  color: #999;
+}
+
+.login-form-container .login-form input[type="text"]:focus,
+.login-form-container .login-form input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login-form-container .error {
+  color: red;
+}
+
+/* Anpassung für den Link */
+.login-container a {
+  margin-top: 10px; /* Abstand nach unten */
+  text-decoration: none; /* Keine Unterstreichung */
+  color: #007bff; /* Textfarbe */
+  font-weight: bold; /* Fetter Text */
+}
+
+.login-container a:hover {
+  text-decoration: underline; /* Unterstreichung beim Hover */
+}

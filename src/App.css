@@ -1,0 +1,203 @@
+/* App.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    min-height: 100vh; /* Mindesthöhe auf 100% der Bildschirmhöhe setzen */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header-Styling */
+header {
+    margin-bottom: 10px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  /* AdminLogin.css */
+
+.login {
+  display: flex; /* Flexbox verwenden */
+  flex-direction:row; /* Elemente horizontal anordnen */
+  justify-content: space-between;
+}
+.admin-login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Vollständige Höhe des Viewports */
+}
+
+.admin-login-page .login-form {
+  width: 300px; /* Beispielbreite */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+  header .title {
+    font-size: 34px;
+    color: #000000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 10px;
+  }
+
+  header p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin: 10px auto;
+    padding: 10px;
+    line-height: 1.5;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #70b7ff36;
+  }
+
+.main {
+    flex: 1; /* Der Hauptbereich nimmt den verbleibenden Platz ein */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.first-div-main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* Höhe der ersten Division anpassen */
+    flex: 1; /* Die erste Division nimmt den verbleibenden Platz im Hauptbereich ein */
+    overflow: hidden;
+    height: 735px;
+}
+
+.second-div-main {
+    width: 100%;
+    flex: 1; /* Die zweite Division nimmt den verbleibenden Platz im Hauptbereich ein */
+    overflow: hidden;
+}
+
+/* Footer-Styling */
+footer {
+    background-color: #9cff2be1;
+    color: #040404;
+    padding: 0px 0; /* Ändere die Padding für den Footer auf 20px oben und unten */
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  
+  /* first element of first division in main */
+  .element1 {
+    width: 40%; 
+  }
+  
+  .first-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 1% 1%;
+    width: 98%; 
+    height: 98%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+
+}
+  /* second element of first division of main */
+  .element2 {
+    /* Breite des zweiten Elements der ersten Division anpassen */
+    width: 60%; 
+  }
+  
+.second-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 1% 1%;
+    width: 98%;
+    height: 98%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  /*  element of second division of main */
+  .element {
+    width: auto;
+  }
+  .third-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 1% 1%;
+    width: 98%;
+    height: 98%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  }
+
+/* CSS für das dritte Element (FeedbackDashboard) */
+.third-div-main {
+  width: 100%;
+  flex: 1; /* Das dritte Element nimmt den verbleibenden Platz im Hauptbereich ein */
+  min-height: 200px; /* Setze eine Mindesthöhe für das dritte Element (FeedbackDashboard) */
+}
+
+/* CSS für das vierte Element */
+.forth-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px 1%; /* Hier den Abstand von oben und unten erhöhen, um Platz zu schaffen */
+  /* width: 98%; */
+  max-height: 70%; /* Maximale Höhe der vierten Karte festlegen */
+  overflow-y: auto; /* Ermögliche vertikales Scrollen, wenn der Inhalt die Höhe überschreitet */
+}
+
+
+/* Media Query für kleinere Bildschirmgrößen */
+@media screen and (max-width: 768px) {
+  .app {
+    padding: 10px; /* Füge etwas Abstand hinzu */
+  }
+
+  .first-div-main,
+  .second-div-main,
+  .third-div-main {
+    flex-direction: column; /* Ändere die Ausrichtung in vertikal */
+    height: auto; /* Entferne die feste Höhe */
+  }
+
+  /* Passe die Breite der Elemente an */
+  .element1,
+  .element2,
+  .element {
+    width: 100%; /* Vollständige Breite für alle Elemente */
+  }
+
+  /* Entferne die Breitenbeschränkungen für die Karten */
+  .first-card,
+  .second-card,
+  .third-card {
+    width: 100%; /* Vollständige Breite für die Karten */
+    margin: 10px 0; /* Ändere den Abstand oben und unten */
+  }
+
+  /* Stelle sicher, dass das FeedbackDashboard die volle Breite hat */
+  .forth-card {
+    width: 100%;
+    max-height: none; /* Entferne die maximale Höhenbeschränkung */
+  }
+}
