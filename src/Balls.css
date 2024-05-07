@@ -1,0 +1,48 @@
+
+.container-ball {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    width: 30px;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .ball {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 50%;
+    animation: moveBall 1.5s linear infinite;
+  }
+  
+  .first {
+    left: calc(25% - 5px); /* 25% der Containerbreite minus die Hälfte der Ballbreite */
+    animation-delay: 0s;
+  }
+  
+  .second {
+    left: calc(50% - 5px); /* 50% der Containerbreite minus die Hälfte der Ballbreite */
+    animation-delay: 0.3s;
+  }
+  
+  .third {
+    left: calc(75% - 5px); /* 75% der Containerbreite minus die Hälfte der Ballbreite */
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes moveBall {
+    0%, 100% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(50%);
+    }
+  }
+  
