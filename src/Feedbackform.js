@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import './FeedbackForm.css'; // Import der CSS-Datei
 
@@ -6,9 +8,11 @@ function FeedbackForm() {
   const [email, setEmail] = useState('');
   const [feedback, setFeedback] = useState('');
   const [showAlert, setShowAlert] = useState(false); // Zustand für die Anzeige der Benachrichtigung
+  const [isLoading, setIsLoading] = useState(false); // Zustand für die Anzeige des Ladezustands
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true); // Setze den Ladezustand auf true, wenn die Anfrage gesendet wird
     fetch('https://get-store-delete-api.onrender.com/insert-feedback/', {
       method: 'POST',
       headers: {
@@ -38,6 +42,9 @@ function FeedbackForm() {
     .catch(error => {
       console.error('Error submitting feedback:', error);
       alert('Error submitting feedback. Please try again later.');
+    })
+    .finally(() => {
+      setIsLoading(false); // Setze den Ladezustand unabhängig vom Ergebnis zurück
     });
   };
 
@@ -80,8 +87,9 @@ function FeedbackForm() {
           ></textarea>
         </div>
         <div className="button-container">
-          <button type="submit">Senden</button>
-          {showAlert && <div className="alert-notification">Feedback sent successfully!</div>}
+          <button type="submit" disabled={isLoading}>{isLoading ? 'Laden...' : 'Senden'}</button>
+          
+          {showAlert && <div className="alert-notification">Vielen Dank für Ihr Feedback</div>}
         </div>
       </form>
     </div>
