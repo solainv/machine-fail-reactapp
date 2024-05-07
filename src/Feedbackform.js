@@ -87,7 +87,7 @@ function FeedbackForm() {
           ></textarea>
         </div>
         <div className="button-container">
-          <button type="submit" disabled={isLoading}>{isLoading ? 'Laden...' : 'Senden'}</button>
+          <button type="submit" disabled={isLoading}>{isLoading ? 'gesendet...' : 'Senden'}</button>
           
           {showAlert && <div className="alert-notification">Vielen Dank für Ihr Feedback</div>}
         </div>
