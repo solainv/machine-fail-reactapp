@@ -1,66 +1,4 @@
-// // // Login: Eingaben im server festgelegt langsamer aber sicherer
 
-// import React, { useState } from 'react';
-
-// const Login = ({ onLogin }) => {
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [error, setError] = useState('');
-
-//   const handleAdminLogin = () => {
-//     if (!username.trim() || !password.trim()) {
-//       setError('Bitte geben Sie Benutzernamen und Passwort ein');
-//       return;
-//     }
-//     setIsLoading(true);
-//     fetch('https://mchine-re-app-login-api.onrender.com/token', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/x-www-form-urlencoded',
-//       },
-//       body: new URLSearchParams({
-//         'username': username.trim(),
-//         'password': password.trim()
-//       })
-//     })
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error('Fehler beim Server');
-//       }
-//       return response.json();
-//     })
-//     .then(data => {
-//       onLogin(data.access_token); // Aufruf der übergebenen Funktion, um das Token zu übergeben
-//       setError('');
-//     })
-//     .catch(error => {
-//       console.error('Fehler beim Login:', error);
-//       setError('Falscher Benutzername oder Passwort');
-//     })
-//     .finally(() => {
-//       setIsLoading(false);
-//     });
-//   };
-
-//   return (
-//     <div>
-//       <h1>Administration</h1>
-//       {error && <p>{error}</p>}
-//       {isLoading ? (
-//         <p>Lade...</p>
-//       ) : (
-//         <div>
-//           <input type="text" placeholder="Benutzername" onChange={e => setUsername(e.target.value)} />
-//           <input type="password" placeholder="Passwort" onChange={e => setPassword(e.target.value)} />
-//           <button onClick={handleAdminLogin}>Einloggen</button>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Login;
 
 import React, { useState } from 'react';
 import { useCookies } from 'react-cookie';
@@ -115,7 +53,6 @@ const AdminLogin = ({ onLogin }) => {
           }
       </div>
       <div className='error'>{error && <p>{error}</p>}</div>
-      <a href="/">Zurück zur Hauptseite</a> {/* Hier ist der Link-Button */}
     </div>
   );
 };
