@@ -1,5 +1,5 @@
 
-.container {
+.container_d {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -9,8 +9,21 @@
   height: 100vh; /* Füllt die gesamte Bildschirmhöhe aus */
 }
 
+
 .feedback-dashboard {
   width: 80%; /* Breite des Feedback-Dashboards */
+}
+.dashboard-heading{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.dashboard-heading img{
+  width:20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .feedback-table {
@@ -53,6 +66,7 @@
   cursor: pointer; /* Zeiger bei Hover über den Schaltflächen */
   font-size: 16px; /* Schriftgröße */
   border-radius: 5px; /* Abgerundete Ecken */
+  margin: 10px auto;
 }
 
 .logout button:hover {
@@ -121,9 +135,14 @@
   .feedback-table td:nth-child(5) {
     z-index: 0;
   }
-  
-  .logout {
-    margin-top: 20px;
-  }
-  
+}
+.logout img {
+  margin: 30px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.logout img:hover{
+  width: 32px;
+  height: 32px;
 }
