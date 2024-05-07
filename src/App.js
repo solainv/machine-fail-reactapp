@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import FeedbackForm from './Feedbackform';
@@ -7,7 +5,7 @@ import FailureForm from './FailureForm';
 import DashAppIntegration from './dash';
 import FeedbackDashboard from './FeedbackDashboard';
 import './App.css';
-import AdminLogin from './AdminLogin'; // Änderung: Importiere die AdminLogin-Komponente
+import AdminLogin from './AdminLogin';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -51,7 +49,7 @@ function App() {
                         nutze. Das bedeutet, dass das Dashboard, die Anfragen und Antworten eine Weile dauern können, 
                         insbesondere beim ersten Abschicken. Vielen Dank für Ihre Geduld."
                       </div>
-                      <a href='/admin'>Administration</a> {/* Änderung: Link zur AdminLogin-Komponente */}
+                      <a href='/admin'>Administration</a> {/* Link zur AdminLogin-Komponente */}
                     </div>
                     <p>
                       Guten Tag! In diesem App  können Sie die potentielle Ausfallsituation Ihrer Maschine vorhersagen. 
@@ -98,7 +96,7 @@ function App() {
             <Route path="/admin">
               {!isLoggedIn ? (
                 <div className="admin-login-page">
-                  <AdminLogin onLogin={handleLogin} /> {/* Änderung: Verwende AdminLogin statt Login */}
+                  <AdminLogin onLogin={handleLogin} /> {/* Verwende die AdminLogin-Komponente */}
                 </div>
               ) : (
                 <FeedbackDashboard onLogout={handleLogout} />
