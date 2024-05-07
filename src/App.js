@@ -55,9 +55,9 @@ function App() {
         ⚠ "Bitte haben Sie Verständnis dafür, dass ich nur die kostenlose Version des Render-Cloud-Servers 
         nutze. Das bedeutet, dass das Dashboard, die Anfragen und Antworten eine Weile dauern können, 
         insbesondere beim ersten Abschicken. Vielen Dank für Ihre Geduld."
-        #</div>
-        #<a href='http://localhost:3000/admin'>Administration</a>
-        #</div>
+        //</div>
+        //<a href='http://localhost:3000/admin'>Administration</a>
+        //</div>
 
         <p>
           Guten Tag! In diesem App  können Sie die potentielle Ausfallsituation Ihrer Maschine vorhersagen. 
