@@ -1,19 +1,24 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './FeedbackDashboard.css';
 import { useCookies } from 'react-cookie';
+import FeedbackTable from './FeedbackTable';
+import bild from './refre.png';
+import Balls  from './Balls';
+import logout from './power-taste.png';
+
 
 function FeedbackDashboard({ onLogout }) {
   const [feedbacks, setFeedbacks] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [cookies, removeCookie] = useCookies(['authToken']);
+  const [isLoading, setIsLoading] = useState(false); // Ändere den Initialwert von isLoading auf false
+  const [sessionCookies, removeSessionCookie] = useCookies(['authToken']);
 
   const handleLogout = useCallback(() => {
-    removeCookie('authToken');
+    removeSessionCookie('authToken');
     onLogout();
-  }, [onLogout, removeCookie]);
+  }, [onLogout, removeSessionCookie]);
 
   useEffect(() => {
-    const authToken = cookies.authToken;
+    const authToken = sessionCookies.authToken;
     if (!authToken) {
       handleLogout();
       return;
@@ -25,22 +30,27 @@ function FeedbackDashboard({ onLogout }) {
       handleLogout();
     }, 10 * 60 * 1000); // 10 Minuten
 
-    return () => clearTimeout(timeout);
-  }, [cookies, handleLogout]);
+    window.addEventListener('beforeunload', handleLogout);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('beforeunload', handleLogout);
+    };
+  }, [sessionCookies, handleLogout]);
 
   const fetchFeedbacks = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('https://get-store-delete-api.onrender.com/get-feedback/');
+      const response = await fetch('http://127.0.0.1:8000/get-feedback/');
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
       const data = await response.json();
       setFeedbacks(data.feedback);
-      setIsLoading(false);
     } catch (error) {
       console.error('Error fetching feedbacks:', error);
-      setIsLoading(false);
+    } finally {
+      setIsLoading(false); // Setze isLoading auf false, wenn die Daten abgerufen wurden, unabhängig vom Ergebnis
     }
   };
 
@@ -57,49 +67,33 @@ function FeedbackDashboard({ onLogout }) {
       console.error('Error deleting feedback:', error);
     }
   };
+
+  const handleRefresh = () => {
+    fetchFeedbacks();
+  };
+
   return (
-    <div className='container'>
-      {isLoading ? (
-        <p>Laden...</p>
-      ) : (
-        <>
-          <div className="feedback-dashboard">
-            <h2 className="dashboard-heading">Feedback Dashboard</h2>
-            <div className="feedback-table-wrapper">
-              <div className="feedback-table-container">
-                <table className="feedback-table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Feedback</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                  <tbody>
-                    {feedbacks.map((feedback, index) => (
-                      <tr key={index}>
-                        <td>{feedback[0]}</td>
-                        <td>{feedback[1]}</td>
-                        {Object.values(feedback).slice(2).map((value, index) => (
-                          <td key={index}>{value}</td>
-                        ))}
-                        <td><button onClick={() => handleDeleteFeedback(feedback[0])}>Delete</button></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div className='logout'>
-            <button onClick={handleLogout}>Ausloggen</button>
-          </div>
-        </>
-      )}
+    <div className='container_d'>
+      <div className="feedback-dashboard">
+        <div className="dashboard-heading">
+          <h2>Feedback Dashboard</h2>
+          <img src={bild} onClick={handleRefresh} alt="Refresh" />   
+          
+        </div>
+        {/* Ladeanzeige wird angezeigt, wenn isLoading true ist */}
+        {isLoading && <div className='lad'><Balls/></div>}
+        {/* FeedbackTable wird nur gerendert, wenn Feedbacks vorhanden sind */}
+        {feedbacks.length > 0 && <FeedbackTable feedbacks={feedbacks} handleDeleteFeedback={handleDeleteFeedback} />}
+      </div>
+      <div className='logout'>
+        {/* <button onClick={handleLogout}>Ausloggen</button> */}
+          <img onClick={handleLogout} src={logout}/>
+      </div>
     </div>
   );
 }
 
 export default FeedbackDashboard;
+
+
+
