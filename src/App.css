@@ -20,6 +20,32 @@ header {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
+.h1-admin{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.h1-admin a{
+  color: blue;
+  text-decoration: none;
+  font-size: large;
+  background-color:#f0f0f07c;
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto; /* Du kannst die Breite anpassen */
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+.h1-admin a:hover{
+  color:rgb(110, 37, 255);
+  background-color: #f0f0f0;
+}
+ 
   /* AdminLogin.css */
 
 .login {
@@ -40,7 +66,16 @@ header {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
+.hinweis{
+  background-color: rgba(255, 59, 59, 0.566);
+  padding: 2px 5px;
+  font-size: small;
+  display: inline-block;
+  height: 55px;
+  width: 650px;
+  color: #000000;
+  text-align: center;
+}
 
   header .title {
     font-size: 34px;
