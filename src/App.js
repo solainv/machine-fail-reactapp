@@ -49,14 +49,14 @@ function App() {
             <Route exact path="/">
               {!isLoggedIn ? (
                 <>
-                  <header className="header">
-                    <div className='h1-admin'>
-                      <h1 className='title'>Machine Ausfall Prediction</h1>
-                      <div className='hinweis'>
+                    <div className='hinweis'>
                         ⚠ "Bitte haben Sie Verständnis dafür, dass ich nur die kostenlose Version des Render-Cloud-Servers 
                         nutze. Das bedeutet, dass das Dashboard, die Anfragen und Antworten eine Weile dauern können, 
                         insbesondere beim ersten Abschicken. Vielen Dank für Ihre Geduld."
-                      </div>
+                    </div>
+                  <header className="header">
+                    <div className='h1-admin'>
+                      <h1 className='title'>Machine Ausfall Prediction</h1>
 
                     </div>
 
