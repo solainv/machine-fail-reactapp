@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { useCookies } from 'react-cookie';
 import './AdminLogin.css';
@@ -53,6 +52,7 @@ const AdminLogin = ({ onLogin }) => {
           }
       </div>
       <div className='error'>{error && <p>{error}</p>}</div>
+      <a href="/">Zurück zur Hauptseite</a>
     </div>
   );
 };
